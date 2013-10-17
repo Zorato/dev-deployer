@@ -1,0 +1,8 @@
+/vendor/
+/logs/*
+!/logs/.empty
+/tmp/*
+!/tmp/.empty
+/config/projects.php
+/build/*
+.DS_STORE

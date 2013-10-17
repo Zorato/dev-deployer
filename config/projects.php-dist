@@ -1,0 +1,15 @@
+<?php
+
+return array(
+    array(
+        'name' => 'dev-deployer',
+        'branch' => 'develop',
+        'repository' => 'git@github.com:adambrett/dev-deployer.git',
+        'path' => '/srv/tools/deployer/%commit%',
+        'flags' => array(
+            'depth' => 50,
+            'recursive' => true
+        ),
+        'post-deploy' => array()
+    )
+);
