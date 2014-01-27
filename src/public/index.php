@@ -43,6 +43,7 @@ $app->container->singleton('projects', function () use ($app) {
 });
 
 require APPLICATION_PATH . '/src/app/routes/github.php';
+require APPLICATION_PATH . '/src/app/routes/bitbucket.php';
 
 // Run app
 $app->run();
