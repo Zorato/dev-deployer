@@ -9,7 +9,8 @@ class Project
     protected $repository;
     protected $path;
     protected $flags;
-    protected $commands;
+    protected $pre_commands;
+    protected $post_commands;
 
     protected $privateKeyPath;
 
@@ -41,14 +42,24 @@ class Project
         return $this->path;
     }
 
-    public function getCommands()
+    public function getPostCommands()
     {
-        return $this->commands;
+        return $this->post_commands;
     }
 
-    public function setCommands(RunList $commands)
+    public function setPostCommands(RunList $commands)
     {
-        $this->commands = $commands;
+        $this->post_commands = $commands;
+    }
+
+    public function getPreCommands()
+    {
+        return $this->pre_commands;
+    }
+
+    public function setPreCommands(RunList $commands)
+    {
+        $this->pre_commands = $commands;
     }
 
     public function getFlags()

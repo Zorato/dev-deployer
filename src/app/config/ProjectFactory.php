@@ -10,6 +10,7 @@ class ProjectFactory
         'repository',
         'path',
         'flags',
+        'pre-deploy',
         'post-deploy',
         'private-key'
     );
@@ -20,7 +21,8 @@ class ProjectFactory
 
         $project = $this->createBasicProject($projectConfig);
 
-        $project->setCommands($this->getRunList($projectConfig['post-deploy']));
+        $project->setPreCommands($this->getRunList($projectConfig['pre-deploy']));
+        $project->setPostCommands($this->getRunList($projectConfig['post-deploy']));
         $project->setFlags($projectConfig['flags']);
         $project->setPrivateKeyPath($projectConfig['private-key']);
 

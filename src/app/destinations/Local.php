@@ -25,6 +25,8 @@ class Local implements Destination
 
     public function deploy(Source $source)
     {
+        $this->preDeploy();
+
         $this->setPrivateKey();
 
         $this->repository = $this->git->workingCopy($this->getPath());
@@ -63,9 +65,16 @@ class Local implements Destination
         $this->repository->checkout($commit);
     }
 
+    protected function preDeploy()
+    {
+        foreach ($this->project->getPreCommands() as $command) {
+            exec($this->interpolator->interpolate($command));
+        }
+    }
+
     protected function postDeploy()
     {
-        foreach ($this->project->getCommands() as $command) {
+        foreach ($this->project->getPostCommands() as $command) {
             exec($this->interpolator->interpolate($command));
         }
     }
