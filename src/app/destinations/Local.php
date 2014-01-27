@@ -44,7 +44,7 @@ class Local implements Destination
     protected function setPrivateKey()
     {
         if ($this->project->requiresPrivateKey()) {
-            $this->git->setPrivateKey($this->project->getKeyPath());
+            $this->git->setPrivateKey($this->project->getPrivateKeyPath());
         }
     }
 
