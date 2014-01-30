@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/github', function () use ($app) {
+$app->post('/bitbucket', function () use ($app) {
     $app->log->debug('Payload: ' . $app->request->post('payload'));
 
     $source = new \Deployer\Sources\Bitbucket($app->request->post('payload'));
