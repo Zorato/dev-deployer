@@ -10,6 +10,7 @@ class ProjectFactory
         'repository',
         'path',
         'flags',
+        'remote',
         'pre-deploy',
         'post-deploy',
         'private-key'
@@ -43,7 +44,8 @@ class ProjectFactory
             $projectConfig['name'],
             $projectConfig['branch'],
             $projectConfig['repository'],
-            $projectConfig['path']
+            $projectConfig['path'],
+            $projectConfig['remote']
         );
     }
 

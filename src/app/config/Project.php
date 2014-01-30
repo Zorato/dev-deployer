@@ -11,15 +11,17 @@ class Project
     protected $flags;
     protected $pre_commands;
     protected $post_commands;
+    protected $remote;
 
     protected $privateKeyPath;
 
-    public function __construct($name, $branch, $repository, $path)
+    public function __construct($name, $branch, $repository, $path, $remote)
     {
         $this->name = $name;
         $this->branch = $branch;
         $this->repository = $repository;
         $this->path = $path;
+        $this->remote = $remote;
     }
 
     public function getName()
@@ -85,5 +87,10 @@ class Project
     public function requiresPrivateKey()
     {
         return !empty($this->privateKeyPath);
+    }
+
+    public function getRemote()
+    {
+        return $this->remote;
     }
 }

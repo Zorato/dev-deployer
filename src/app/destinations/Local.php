@@ -30,7 +30,10 @@ class Local implements Destination
         $this->setPrivateKey();
 
         $this->repository = $this->git->workingCopy($this->getPath());
-        $this->checkoutCommit($source->getCommit());
+        $this->repository->reset(array('hard'=>true));
+        $this->repository->checkout($source->getBranch());
+        $this->repository->pull($this->project->getRemote());
+        $this->repository->checkout($source->getCommit());
 
         $this->postDeploy();
     }
