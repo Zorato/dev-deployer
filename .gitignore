@@ -6,3 +6,4 @@
 /config/projects.php
 /build/*
 .DS_STORE
+composer.lock
